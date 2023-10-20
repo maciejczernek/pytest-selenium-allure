@@ -62,5 +62,6 @@ def pytest_runtest_makereport(item):
 
 
 def pytest_sessionfinish():
+    create_report_folder()
     copy_allure_history()
     generate_report()

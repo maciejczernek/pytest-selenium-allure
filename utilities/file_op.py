@@ -33,3 +33,9 @@ def create_environment_properties_file(driver, extra_info):
 def generate_report():
     os.chdir(RESULTS_PATH)
     os.system("allure generate --clean")
+
+
+def create_report_folder():
+    path = os.path.join(RESULTS_PATH, r"allure-report")
+    if not os.path.isdir(path):
+        os.mkdir(path)
