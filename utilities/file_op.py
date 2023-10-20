@@ -10,7 +10,7 @@ def copy_allure_history():
     target_path = os.path.join(RESULTS_PATH, r"allure-results/history")
 
     if not os.path.isdir(history_path):
-        print("Folder doesn't exist")
+        print("The history folder doesn't exist")
         return
 
     shutil.copytree(history_path, target_path, dirs_exist_ok=True)
