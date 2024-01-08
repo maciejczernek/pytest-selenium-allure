@@ -1,7 +1,8 @@
 import allure
 import pytest
 
-from utilities.file_op import copy_allure_history, generate_report
+from utilities.file_op import copy_allure_history, generate_report, \
+    create_report_folder
 from .config import Configuration
 
 
