@@ -8,7 +8,7 @@ from utilities.file_op import copy_allure_history, generate_report, \
 
 
 def pytest_addoption(parser):
-    parser.addoption("--browser", default="chrome", choices="chrome, ff")
+    parser.addoption("--browser", default="ff", choices="chrome, ff")
     parser.addoption("--headless", default="True")
     parser.addoption("--resolution", default="1920,1080")
 
