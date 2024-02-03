@@ -71,6 +71,11 @@ class BaseElement:
             self.wait.until(ec.visibility_of_element_located(locator)))
         element.deselect_by_visible_text(text)
 
+    def element_select_get_options(self, locator):
+        element = Select(
+            self.wait.until(ec.visibility_of_element_located(locator)))
+        return element.options
+
     def element_switch_to_default_content(self):
         self.driver.switch_to.default_content()
 
