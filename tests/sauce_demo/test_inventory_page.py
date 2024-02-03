@@ -28,7 +28,7 @@ def test_verify_sort_options_length(browser, open_and_login):
 
 @pytest.mark.inventory_page
 @allure.suite("Inventory page")
-@allure.title("The sorting function should contains particular names")
+@allure.title("The sorting function should contains particular name")
 @allure.testcase("#", "TC-1330")
 @allure.description(
     """
