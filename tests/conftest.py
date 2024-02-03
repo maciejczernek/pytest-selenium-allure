@@ -1,9 +1,10 @@
 import allure
 import pytest
 
+from .config import Configuration
+from pages.sauce_demo.login_page import SauceDemoLoginPage
 from utilities.file_op import copy_allure_history, generate_report, \
     create_report_folder
-from .config import Configuration
 
 
 def pytest_addoption(parser):
@@ -60,6 +61,21 @@ def pytest_runtest_makereport(item):
             name='Screenshot',
             attachment_type=allure.attachment_type.PNG
         )
+
+
+@pytest.fixture
+@allure.title("Open the main page and login to the system")
+def open_and_login(browser):
+    # TODO: Hide sensitive data and use os.environ
+    username = "standard_user"
+    password = "secret_sauce"
+
+    sauce_login_page = SauceDemoLoginPage(browser)
+
+    sauce_login_page.get_page()
+    sauce_login_page.username_send_keys(username)
+    sauce_login_page.password_send_keys(password)
+    sauce_login_page.login_button_click_button()
 
 
 def pytest_sessionfinish():

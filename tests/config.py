@@ -37,3 +37,8 @@ class Configuration:
         driver = webdriver.Firefox(service=service, options=ff_options)
         create_environment_properties_file(driver, self.env_prop_dict)
         return driver
+
+
+class SauceDemoPageConfig:
+    BASE_URL = "https://www.saucedemo.com"
+
