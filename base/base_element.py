@@ -11,6 +11,7 @@ class BaseElement:
     def __init__(self, driver):
         self.driver = driver
         # self.driver = webdriver.Chrome()
+        self.actions = ActionChains(self.driver)
         self.wait = WebDriverWait(self.driver, timeout=10, poll_frequency=0.5,
                                   ignored_exceptions=[NoSuchElementException,
                                                       ElementNotVisibleException,
@@ -85,29 +86,29 @@ class BaseElement:
 
     def element_move_to_element(self, locator):
         element = self.wait.until(ec.visibility_of_element_located(locator))
-        ActionChains(self.driver).move_to_element(element)
+        self.actions.move_to_element(element)
 
     def element_context_click(self, locator):
         element = self.wait.until(ec.visibility_of_element_located(locator))
-        ActionChains(self.driver).context_click(element)
+        self.actions.context_click(element)
 
     def element_click_and_hold(self, locator):
         element = self.wait.until(ec.visibility_of_element_located(locator))
-        ActionChains(self.driver).click_and_hold(element)
+        self.actions.click_and_hold(element)
 
     def element_double_click(self, locator):
         element = self.wait.until(ec.visibility_of_element_located(locator))
-        ActionChains(self.driver).double_click(element)
+        self.actions.double_click(element)
 
     def element_drag_and_drop(self, source_locator, target_locator):
         element_source = self.wait.until(
             ec.visibility_of_element_located(source_locator))
         element_target = self.wait.until(
             ec.visibility_of_element_located(target_locator))
-        ActionChains(self.driver).drag_and_drop(element_source, element_target)
+        self.actions.drag_and_drop(element_source, element_target)
 
     def element_perform_actions(self):
-        ActionChains(self.driver).perform()
+        self.actions.perform()
 
     def element_enabled(self, locator):
         return self.wait.until(
